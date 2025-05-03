@@ -30,6 +30,7 @@ int main(void)
     t_game game;
 
     init_game(&game);
+    draw_square(WIDTH/2, HEIGHT/2, 10,0x00FF00FF ,&game);
 
     mlx_loop(game.mlx);
 	

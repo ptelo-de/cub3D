@@ -6,7 +6,7 @@
 #    By: ptelo-de <ptelo-de@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/23 16:53:33 by ptelo-de          #+#    #+#              #
-#    Updated: 2025/05/02 20:47:19 by ptelo-de         ###   ########.fr        #
+#    Updated: 2025/05/03 10:54:10 by ptelo-de         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ MLX_PATH		=	includes/minilibx/
 LINKS			=  -L./$(MLX_PATH) -lmlx -L./includes/libft -lft -lX11 -lXext -lm -lbsd
 
 SRC				=	raycasting/pilar_main.c \
-					raycasting/init_game.c
+					raycasting/init_game.c \
+					raycasting/put_pixel.c 
 SRC_DIR			= raycasting
 
 OBJ				=	$(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o) 

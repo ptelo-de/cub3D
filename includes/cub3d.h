@@ -27,5 +27,6 @@ typedef struct s_batata
 }t_game;
 
 void init_game(t_game *game);
+void	draw_square(int x, int y, int size, int color, t_game *game);
 
 #endif
