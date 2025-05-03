@@ -2,6 +2,7 @@
 
 void init_game(t_game *game)
 {
+	init_player(game->player);
 	game->mlx = mlx_init();
 	game->window = mlx_new_window(game->mlx, WIDTH, HEIGHT, \
 	"Cub3D by bde-luce and ptelo-de");

@@ -27,11 +27,12 @@ int **get_map(void)
 
 int main(void)
 {
-    t_game game;
+	t_game game;
 
-    init_game(&game);
-    draw_square(WIDTH/2, HEIGHT/2, 10,0x00FF00FF ,&game);
+	init_game(&game);
+	ft_event_hooks(&game);
+	mlx_loop_hook(game.mlx, draw_loop, &game);
 
-    mlx_loop(game.mlx);
-	
+	mlx_loop(game.mlx);
+
 }
