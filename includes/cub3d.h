@@ -25,7 +25,8 @@ typedef struct s_cebola
 
 typedef struct s_player
 {
-	t_2D	*pos;
+	float	x;
+	float	y;
 	float	angle;
 
 	bool	key_up;
@@ -38,7 +39,7 @@ typedef struct s_player
 
 typedef struct s_batata
 {
-	t_player	*player;
+	t_player	player;
 	void		*mlx;
 	void		*window;
 	void		*img;

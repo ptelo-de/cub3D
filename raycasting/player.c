@@ -2,21 +2,10 @@
 
 void	init_player(t_player *player)
 {
-	player = ft_calloc(1, sizeof(t_2D));
-	if (!player)
-	{
-		//free mem
-		exit(1);
-	}
-	player->pos = ft_calloc(1, sizeof(t_2D));
-	if (!player->pos)
-	{
-		//free mem
-		exit(1);
-	}
-	player->pos->x = WIDTH / 2;
-	player->pos->y = HEIGHT / 2;
-	player->angle = PI / 2;
+
+	player->x = WIDTH / 2;
+	player->y = HEIGHT / 2;
+	player->angle = 3.14 / (float)(2);
 
 	player->key_up = false;
 	player->key_down = false;
@@ -48,22 +37,25 @@ void	move_player(t_player *player, int speed, float angle_speed)
 	sin_angle = sin(player->angle);
 	if (player->key_up)
 	{
-		player->pos->x += cos_angle * speed;
-		player->pos->y += sin_angle * speed;
+		player->x += cos_angle * speed;
+		player->y += sin_angle * speed;
 	}
 	if (player->key_down)
 	{
-		player->pos->x -= cos_angle * speed;
-		player->pos->y -= sin_angle * speed;
+		player->x -= cos_angle * speed;
+		player->y -= sin_angle * speed;
 	}
 	if (player->key_left)
 	{
-		player->pos->x += sin_angle * speed;
-		player->pos->y -= cos_angle * speed;
+	printf("%p, player.x %f\n", player, player->x);
+		player->x += sin_angle * speed;
+		printf("player x: %f\n", player->x);
+		player->y -= cos_angle * speed;
+		printf("player x: %f\n", player->y);
 	}
 	if (player->key_right)
 	{
-		player->pos->x -= sin_angle * speed;
-		player->pos->y += cos_angle * speed;
+		player->x -= sin_angle * speed;
+		player->y += cos_angle * speed;
 	}
 }
