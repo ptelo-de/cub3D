@@ -55,7 +55,7 @@ typedef struct s_batata
 	int			bpp;
 	int			size_line;
 	int			endian;
-}				t_game;
+}	t_game;
 //init_game.c
 void	init_game(t_game *game);
 
@@ -65,8 +65,8 @@ void	put_pixel(int x, int y, int color, t_game *game);
 int 	draw_loop(t_game *game);
 
 //event_hook.c
-int		ft_key_press(int keycode, t_player *player);
-int		ft_key_release(int keycode, t_player *player);
+int		ft_key_press(int keycode, t_game	*game);
+int		ft_key_release(int keycode, t_game *game);
 void	ft_event_hooks(t_game *game);
 
 //player.c
@@ -76,7 +76,5 @@ void	init_player(t_player *player);
 
 //mini_map.c
 void	ft_draw_2D_map(t_game *game);
-void	ft_bresenham(t_2D	pos0,	t_2D	pos1, t_game *game);
-
 
 #endif

@@ -28,7 +28,7 @@ void	ft_bresenham(t_2D	pos0,	t_2D	pos1, t_game *game)
 	y_step /= max;
 	while ((int)(pos0.x - pos1.x) || (int)(pos0.y - pos1.y))
 	{
-		put_pixel(pos0.x, pos0.y, 0x0000FF, game);
+		put_pixel(pos0.x, pos0.y, 0x00FF00 , game);
 		pos0.x += x_step;
 		pos0.y += y_step;
 	}
@@ -63,6 +63,5 @@ void	ft_draw_2D_map(t_game *game)
 		}
 		pos0.y++;
 	}
-	mlx_put_image_to_window(game->mlx, game->window, game->img, 0,
-		0);
+	printf("aaaaaaaaaaaaaaa\n");
 }

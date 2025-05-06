@@ -52,15 +52,12 @@ int draw_loop(t_game *game)
 {
 	t_2D	pos;
 
-    	printf("LLLLLLL\n");
-	move_player(&(game->player), 3, 0.03);
-	clear_image(game);
+	move_player(&(game->player),3, 0.03);
+    clear_image(game);
 	pos.x = game->player.x;
 	pos.y = game->player.y;
-	draw_square(pos, 10, 0x00FF00, game);
-	printf("%p\n", game->mlx);
-	printf("%p\n", game->window);
-	printf("%p\n", game->img);
-	mlx_put_image_to_window(game->mlx, game->window, game->img, 0, 0);
-	return (0);
+    draw_square(pos, 10, 0x00FF00, game);
+	//ft_draw_2D_map(game);	
+    mlx_put_image_to_window(game->mlx, game->window, game->img, 0, 0);
+    return 0;
 }

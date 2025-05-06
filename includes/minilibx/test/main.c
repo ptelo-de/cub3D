@@ -180,7 +180,7 @@ int	main()
   if (!(im2 = mlx_xpm_file_to_image(mlx,"open.xpm",&xpm1_x,&xpm1_y)))
     {
       printf(" !! KO !!\n");
-      (1);
+      exit(1);
     }
   data2 = mlx_get_data_addr(im2,&bpp2,&sl2,&endian2);
   printf("OK (xpm %dx%d)(img bpp2: %d, sizeline2: %d endian: %d type: %d)\n",

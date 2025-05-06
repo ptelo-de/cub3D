@@ -27,7 +27,6 @@ void	set_angle(t_player *player, float angle_speed)
 	if (player->angle < 0)
 		player->angle = 2 * PI;
 }
-
 void	move_player(t_player *player, int speed, float angle_speed)
 {
 	float	cos_angle;
@@ -57,4 +56,3 @@ void	move_player(t_player *player, int speed, float angle_speed)
 		player->y -= cos_angle * speed;
 	}
 }
-
