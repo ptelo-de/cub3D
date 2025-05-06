@@ -3,16 +3,10 @@
 int **get_map(void)
 {
     const char *src[] = {
-        "111111111111111", 
-		"100000000000001", 
-		"100000000000001",
-        "100000100000001", 
-		"100000000000001", 
-		"100000010000001",
-        "100001000000001", 
-		"100000000000001", 
-		"100000000000001",
-        "111111111111111", NULL
+        "11111", 
+		"10001", 
+		"10001",
+        "11111", NULL
     };
 
     int **map = malloc(sizeof(int *) * 11);
@@ -32,6 +26,7 @@ int main(void)
 	init_game(&game);
 	ft_event_hooks(&game);
 
+    	printf("LLLLLLL\n");
 	mlx_loop_hook(game.mlx, draw_loop, &game);
 
 	mlx_loop(game.mlx);

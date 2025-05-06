@@ -27,6 +27,7 @@ void	set_angle(t_player *player, float angle_speed)
 	if (player->angle < 0)
 		player->angle = 2 * PI;
 }
+
 void	move_player(t_player *player, int speed, float angle_speed)
 {
 	float	cos_angle;
@@ -37,25 +38,23 @@ void	move_player(t_player *player, int speed, float angle_speed)
 	sin_angle = sin(player->angle);
 	if (player->key_up)
 	{
-		player->x += cos_angle * speed;
-		player->y += sin_angle * speed;
-	}
-	if (player->key_down)
-	{
 		player->x -= cos_angle * speed;
 		player->y -= sin_angle * speed;
 	}
-	if (player->key_left)
+	if (player->key_down)
 	{
-	printf("%p, player.x %f\n", player, player->x);
-		player->x += sin_angle * speed;
-		printf("player x: %f\n", player->x);
-		player->y -= cos_angle * speed;
-		printf("player x: %f\n", player->y);
+		player->x += cos_angle * speed;
+		player->y += sin_angle * speed;
 	}
-	if (player->key_right)
+	if (player->key_left)
 	{
 		player->x -= sin_angle * speed;
 		player->y += cos_angle * speed;
 	}
+	if (player->key_right)
+	{
+		player->x += sin_angle * speed;
+		player->y -= cos_angle * speed;
+	}
 }
+

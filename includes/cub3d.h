@@ -37,8 +37,15 @@ typedef struct s_player
 	bool	right_rotate;
 }				t_player;
 
+typedef struct s_mapa
+{
+	int		height;
+	int		width;
+}				t_map;
+
 typedef struct s_batata
 {
+	t_map		map;
 	t_player	player;
 	void		*mlx;
 	void		*window;
@@ -66,5 +73,10 @@ void	ft_event_hooks(t_game *game);
 void	move_player(t_player *player, int speed, float angle_speed);
 void	set_angle(t_player *player, float angle_speed);
 void	init_player(t_player *player);
+
+//mini_map.c
+void	ft_draw_2D_map(t_game *game);
+void	ft_bresenham(t_2D	pos0,	t_2D	pos1, t_game *game);
+
 
 #endif

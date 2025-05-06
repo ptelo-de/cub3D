@@ -4,8 +4,6 @@ void	ft_event_hooks(t_game *game)
 {
 	//mlx_hook(game->window, DestroyNotify, StructureNotifyMask,
 	//	ft_handle_close_win, game);
-
-	    printf("AAAAAAAAAAAa\n");
 	mlx_hook(game->window, KeyPress, KeyPressMask, ft_key_press, game);
 	mlx_hook(game->window, KeyRelease, KeyReleaseMask, ft_key_release,
 		game);
