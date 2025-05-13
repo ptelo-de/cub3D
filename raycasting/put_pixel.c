@@ -47,17 +47,12 @@ void	clear_image(t_game *game)
 			put_pixel(x, y, 0, game);
 	}
 }
-
+void draw_2d_map(t_game *game);
 int draw_loop(t_game *game)
 {
-	t_2D	pos;
-
 	move_player(&(game->player),3, 0.03);
     clear_image(game);
-	pos.x = game->player.x;
-	pos.y = game->player.y;
-    draw_square(pos, 10, 0x00FF00, game);
-	//ft_draw_2D_map(game);	
+	draw_2d_map(game);
     mlx_put_image_to_window(game->mlx, game->window, game->img, 0, 0);
     return 0;
 }

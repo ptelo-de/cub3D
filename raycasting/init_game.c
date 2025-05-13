@@ -1,15 +1,26 @@
 #include "../includes/cub3d.h"
 
-void	init_map(t_map	*map)
+char **get_map(void)
 {
-	map->height = 4;
-	map->width = 5;
+    static char *src[] = {
+        "111111111111111", 
+		"100000000000001", 
+		"100000000000001",
+        "100000100000001", 
+		"100000000000001", 
+		"100000010000001",
+        "100001000000001", 
+		"100000000000001", 
+		"100000000000001",
+        "111111111111111", NULL
+    };
+    return src;
 }
 
 void init_game(t_game *game)
 {
 	init_player(&game->player);
-	init_map(&game->map);
+	game->map.buffer = get_map();
 	game->mlx = mlx_init();
 	game->window = mlx_new_window(game->mlx, WIDTH, HEIGHT, \
 	"Cub3D by bde-luce and ptelo-de");

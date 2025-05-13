@@ -41,6 +41,7 @@ typedef struct s_mapa
 {
 	int		height;
 	int		width;
+	char	**buffer;
 }				t_map;
 
 typedef struct s_batata
