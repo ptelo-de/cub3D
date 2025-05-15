@@ -25,10 +25,10 @@ void	clear_image(t_game *game)
 			put_pixel(x, y, 0, game);
 	}
 }
-void draw_2d_map(t_game *game);
+
 int draw_loop(t_game *game)
 {
-	move_player(&(game->player),3, 0.03);
+	move_player(&(game->player),0.1, 0.03);
     clear_image(game);
 	draw_2d_map(game);
 	//t_2D pos;

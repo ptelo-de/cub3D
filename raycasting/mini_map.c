@@ -18,28 +18,6 @@ void draw_tile(int x, int y, int color, t_game *game)
 	}
 }
 
-void	draw_square(t_2D pos, int size, int color, t_game *game)
-{
-	int	i;
-	int	x;
-	int	y;
-
-	x = (int)floorf(pos.x);
-	y = (int)floorf(pos.y);
-		printf("draw_square: x:%d y: %d\n",x,y);
-	i = -1;
-	while (++i < size)
-		put_pixel(x + i, y, color, game);
-	i = -1;
-	while (++i < size)
-		put_pixel(x, y + i, color, game);
-	i = -1;
-	while (++i < size)
-		put_pixel(x + size, y + i, color, game);
-	i = -1;
-	while (++i < size)
-		put_pixel(x + i, y + size, color, game);
-}
 void draw_2d_map(t_game *game)
 {
     int color;
