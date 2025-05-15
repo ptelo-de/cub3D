@@ -5,7 +5,7 @@ char **get_map(void)
     static char *src[] = {
         "111111111111111", 
 		"100000000000001", 
-		"100000000000001",
+		"1000000000N0001",
         "100000100000001", 
 		"100000000000001", 
 		"100000010000001",
@@ -19,8 +19,8 @@ char **get_map(void)
 
 void init_game(t_game *game)
 {
-	init_player(&game->player);
 	game->map.buffer = get_map();
+	init_player(&game->player, game);
 	game->mlx = mlx_init();
 	game->window = mlx_new_window(game->mlx, WIDTH, HEIGHT, \
 	"Cub3D by bde-luce and ptelo-de");

@@ -73,7 +73,7 @@ void	ft_event_hooks(t_game *game);
 //player.c
 void	move_player(t_player *player, int speed, float angle_speed);
 void	set_angle(t_player *player, float angle_speed);
-void	init_player(t_player *player);
+void	init_player(t_player *player, t_game *game);
 
 //mini_map.c
 void	ft_draw_2D_map(t_game *game);
