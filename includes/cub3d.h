@@ -15,14 +15,20 @@
 # include <fcntl.h>      //readonlymacro
 # include <math.h>
 # include <stdbool.h>
+# define TILE_SIZE 10
 
-
-typedef struct s_cebola
+typedef struct s_2D
 {
 	float	x;
 	float	y;
 }				t_2D;
-
+typedef struct s_square
+{
+	t_2D v1;
+	t_2D v2;
+	t_2D v3;
+	t_2D v4;
+}				t_square;
 typedef struct s_player
 {
 	float	x;
@@ -37,14 +43,14 @@ typedef struct s_player
 	bool	right_rotate;
 }				t_player;
 
-typedef struct s_mapa
+typedef struct s_map
 {
 	int		height;
 	int		width;
 	char	**buffer;
 }				t_map;
 
-typedef struct s_batata
+typedef struct s_game
 {
 	t_map		map;
 	t_player	player;
@@ -57,6 +63,7 @@ typedef struct s_batata
 	int			size_line;
 	int			endian;
 }	t_game;
+
 //init_game.c
 void	init_game(t_game *game);
 

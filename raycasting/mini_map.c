@@ -1,6 +1,5 @@
 #include "../includes/cub3d.h"
 
-#define TILE_SIZE 10
 
 void draw_tile(int x, int y, int color, t_game *game)
 {
@@ -31,9 +30,9 @@ void draw_2d_map(t_game *game)
 		while (game->map.buffer[y][++x])
         {
             if (game->map.buffer[y][x] == '1')
-                color = 0xFFFFFF; // parede = branco
+                color = 0xFFFFFF;
             else
-                color = 0x000000; // chão = preto
+                color = 0x000000;
 
 			draw_tile(x, y, color, game);
         }
