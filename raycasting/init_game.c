@@ -1,4 +1,5 @@
 #include "../includes/cub3d.h"
+//BRESENHAM
 
 char **get_map(void)
 {
@@ -7,10 +8,10 @@ char **get_map(void)
 		"100000000000001", 
 		"100000000000001",
         "100000000000001", 
-		"100000000000001", 
-		"1000000N0000001",
-        "100000000000001", 
-		"100000000000001", 
+		"100000001000001", 
+		"1000000E0000001",
+        "100000000100001", 
+		"100000100000001", 
 		"100000000000001",
         "111111111111111", NULL
     };
@@ -25,7 +26,7 @@ void init_player_angle(t_player *player, char position)
 	if (position == 'S')
 		player->angle = (3 * PI) / 2;
 	if (position == 'E')
-		player->angle = 0;
+		player->angle = 2 * PI;
 }
 void	player_first_pos(t_player *player, t_game *game)
 {

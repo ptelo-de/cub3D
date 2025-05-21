@@ -67,10 +67,17 @@ int is_wall_hit(t_player player, char **map, float speed, float angle_speed)
 		player2.y -= cos_angle * speed;
 	}
 	
-	if (player2.y< 0 || player2.x < 0|| map[(int)player2.y + 1][(int)player2.x + 1] == '1'){
-		printf("x = %f | y = %f | map = %c\n", player2.x, player2.y, map[(int)player2.y][(int)player2.x]);
-		printf("x = %f | y = %f | map = %c\n", player.x, player.y, map[(int)player.y][(int)player.x]);
+	if (player2.y < 0 || player2.x < 0)
 		return 1;
+	
+	
+	 if (map[(int)player2.y] 
+	 	&& (map[(int)player2.y][(int)player2.x] == '1'
+		|| (map[(int)player2.y][(int)(player2.x + 0.8)] == '1')
+		|| (map[(int)(player2.y + 0.8)][(int)player2.x] == '1')
+		|| (map[(int)(player.y + 0.8)][(int)(player2.x + 0.8)] == '1')))
+	{
+		return (1);
 	}
 	return 0;
 }
@@ -79,9 +86,9 @@ int draw_loop(t_game *game)
 	t_square square;
 	// move_player(&(game->player),0.1, 0.03);
 	init_square(&square, game->player);
-	if (is_wall_hit(game->player, game->map.buffer, 0.05, 0.03) == 0)
+	if (is_wall_hit(game->player, game->map.buffer, 0.1, 0.03) == 0)
 	{
-		move_player(&(game->player),0.1, 0.03);
+		move_player(&(game->player), 0.1, 0.03);
 		clear_image(game);
 		draw_2d_map(game);
 		mlx_put_image_to_window(game->mlx, game->window, game->img, 0, 0);
