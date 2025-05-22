@@ -6,6 +6,11 @@
 # define HEIGHT 720
 
 # define PI 3.14159265359
+# define SPEED 0.1
+# define ANGLE_SPEED 0.03
+# define TILE_SIZE 10
+# define DEVIATION 0.8
+
 
 # include "minilibx/mlx.h"
 # include "get_next_line_bonus.h"
@@ -15,7 +20,6 @@
 # include <fcntl.h>      //readonlymacro
 # include <math.h>
 # include <stdbool.h>
-# define TILE_SIZE 10
 
 typedef struct s_2D
 {
@@ -41,6 +45,7 @@ typedef struct s_player
 	bool	key_right;	
 	bool	left_rotate;
 	bool	right_rotate;
+	char	**map;
 }				t_player;
 
 typedef struct s_map
@@ -78,11 +83,13 @@ int		ft_key_release(int keycode, t_game *game);
 void	ft_event_hooks(t_game *game);
 
 //player.c
-void	move_player(t_player *player, float speed, float angle_speed);
-void	set_angle(t_player *player, float angle_speed);
+void	move_player(t_player *player);
+void	set_angle(t_player *player);
 void	init_player(t_player *player, t_game *game);
 
 //mini_map.c
 void draw_2d_map(t_game *game);
+
+int is_wall_hit(t_player player, float y, float x);
 
 #endif

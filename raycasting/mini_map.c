@@ -17,6 +17,7 @@ void draw_tile(int x, int y, int color, t_game *game)
 	}
 }
 
+
 void draw_2d_map(t_game *game)
 {
     int color;

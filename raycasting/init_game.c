@@ -8,10 +8,10 @@ char **get_map(void)
 		"100000000000001", 
 		"100000000000001",
         "100000000000001", 
-		"100000001000001", 
-		"1000000E0000001",
-        "100000000100001", 
-		"100000100000001", 
+		"100000000100001", 
+		"1000000N0000001",
+        "100010000001001", 
+		"100000000000001", 
 		"100000000000001",
         "111111111111111", NULL
     };
@@ -65,6 +65,7 @@ void	init_player(t_player *player, t_game *game)
 	player->key_left = false;
 	player->left_rotate = false;
 	player->right_rotate = false;
+	player->map = game->map.buffer;
 }
 
 void init_game(t_game *game)
