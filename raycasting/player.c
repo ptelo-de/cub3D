@@ -13,23 +13,42 @@ void	set_angle(t_player *player)
 }
 
 
+
+
+int is_wall_hit(t_player player ,float to_move_x, float to_move_y)
+{
+	if (player.y + to_move_y < 0 || player.x + to_move_x < 0)
+		return (1);
+	if (player.map[(int)(player.y + to_move_y)] 
+		 && player.map[(int)(player.y + to_move_y)][(int)(player.x + to_move_x)] == '1')//TOP LEFT colision
+		return(1);
+	if (player.map[(int)floor(player.y + to_move_y)] 
+	 	&& (player.map[(int)floor(player.y + DEVIATION + to_move_y)][(int)floor(player.x + to_move_x)] == '1'))//DOWN LEFT colision
+		return(1);
+	if (player.map[(int)floor(player.y + to_move_y)]
+		&& (player.map[(int)floor(player.y + DEVIATION + to_move_y)][(int)floor(player.x + DEVIATION + to_move_x)] == '1'))//BOTOM RIGHT colision
+		return(1);
+	if (player.map[(int)floor(player.y + to_move_y )]
+		&& (player.map[(int)floor(player.y + DEVIATION + to_move_y)][(int)floor(player.x + to_move_x)] == '1'))//BOTOM LEFT colision
+		return(1);
+
+	return 0;
+}
+
 void	wich_direction(t_player player, float *x, float *y)
 {
-
 	if(is_wall_hit(player, 0, *y))
-	{
 		*y = 0;
-	}
 	if(is_wall_hit(player, *x, 0))
-	{
 		*x = 0;
-	}
 }
 
 void	move_player(t_player *player)
 {
 	float	cos_angle;
 	float	sin_angle;
+	float to_move_x;
+	float to_move_y;
 
 
 	set_angle(player);
@@ -37,8 +56,6 @@ void	move_player(t_player *player)
 	cos_angle = cos(player->angle);
 	sin_angle = sin(player->angle);
 
-	float to_move_x;
-	float to_move_y;
 
 	if (player->key_up)
 	{

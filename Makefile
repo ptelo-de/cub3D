@@ -6,7 +6,7 @@
 #    By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/23 16:53:33 by ptelo-de          #+#    #+#              #
-#    Updated: 2025/05/06 21:24:41 by ptelo-de         ###   ########.fr        #
+#    Updated: 2025/05/28 20:34:13 by ptelo-de         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,8 @@ SRC				=	raycasting/pilar_main.c \
 					raycasting/put_pixel.c \
 					raycasting/player.c \
 					raycasting/event_hook.c \
-					raycasting/mini_map.c
+					raycasting/mini_map.c \
+					raycasting/optic_ray.c
 					
 SRC_DIR			= raycasting
 

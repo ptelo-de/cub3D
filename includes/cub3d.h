@@ -10,6 +10,7 @@
 # define ANGLE_SPEED 0.03
 # define TILE_SIZE 10
 # define DEVIATION 0.8
+# define FOV_DEGREE 60
 
 
 # include "minilibx/mlx.h"
@@ -26,13 +27,13 @@ typedef struct s_2D
 	float	x;
 	float	y;
 }				t_2D;
-typedef struct s_square
+typedef struct s_optic_ray
 {
-	t_2D v1;
-	t_2D v2;
-	t_2D v3;
-	t_2D v4;
-}				t_square;
+	float x;
+	float y;
+	int dist;
+}t_optic_ray;
+
 typedef struct s_player
 {
 	float	x;
@@ -91,5 +92,7 @@ void	init_player(t_player *player, t_game *game);
 void draw_2d_map(t_game *game);
 
 int is_wall_hit(t_player player, float y, float x);
+t_optic_ray send_optic_ray(float x_start, float y_start, float ori, char **map);
+void	put_point(int x, int y, int color, t_game *game);
 
 #endif

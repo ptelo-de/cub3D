@@ -3,6 +3,7 @@
 		"cub3d.h": "c",
 		"map": "c",
 		"format": "c",
-		"cmath": "c"
+		"cmath": "c",
+		"stdbool.h": "c"
 	}
 }
