@@ -29,8 +29,8 @@ typedef struct s_2D
 }				t_2D;
 typedef struct s_optic_ray
 {
-	float x;
-	float y;
+	float start_x;
+	float start_y;
 	int dist;
 }t_optic_ray;
 

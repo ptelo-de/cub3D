@@ -79,18 +79,11 @@
 int is_wall_hit_cord(float x, float y,  char **map)
 {
 	if (y < 0 || x < 0)
+  {
 		return (1);
+  }
 	if (map[(int)(y)] 
-		 && map[(int)(y)][(int)(x)] == '1')//TOP LEFT colision
-		return(1);
-	if (map[(int)floor(y)] 
-	 	&& (map[(int)floor(y )][(int)floor(x)] == '1'))//DOWN LEFT colision
-		return(1);
-	if (map[(int)floor(y)]
-		&& (map[(int)floor(y)][(int)floor(x)] == '1'))//BOTOM RIGHT colision
-		return(1);
-	if (map[(int)floor(y )]
-		&& (map[(int)floor(y)][(int)floor(x)] == '1'))//BOTOM LEFT colision
+		 && map[(int)(y)][(int)(x)] == '1')
 		return(1);
 
 	return 0;
@@ -102,18 +95,21 @@ t_optic_ray send_optic_ray(float x_start, float y_start, float ori, char **map)
   t_2D ray;
   t_optic_ray ret;
 
-  ret.x = x_start;
-  ret.y = y_start;
+  ret.start_x = x_start;
+  ret.start_y = y_start;
   ret.dist = 0;
   ray.x = cos(ori);
   ray.y = sin(ori);
 
-    while(!is_wall_hit_cord(ray.x, ray.y, map))
+  printf("SEND OPTIC: x_start: %f, y_start: %f\n, angle: %f\n", x_start, y_start, ori);
+
+    while(!is_wall_hit_cord(ret.start_x + ray.x, ret.start_y + ray.y, map))
     {
       ret.dist++;
-      ret.x+= ray.x * 0.1;
-      ret.y+= ray.y * 0.1;
+      ret.start_x+= ray.x * 0.1;
+      ret.start_y+= ray.y * 0.1;
     }
+    // missing implement max dist
     return(ret);
 }
 

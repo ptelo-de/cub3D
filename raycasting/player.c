@@ -19,8 +19,8 @@ int is_wall_hit(t_player player ,float to_move_x, float to_move_y)
 {
 	if (player.y + to_move_y < 0 || player.x + to_move_x < 0)
 		return (1);
-	if (player.map[(int)(player.y + to_move_y)] 
-		 && player.map[(int)(player.y + to_move_y)][(int)(player.x + to_move_x)] == '1')//TOP LEFT colision
+	if (player.map[(int)floor(player.y + to_move_y)] 
+		 && player.map[(int)floor(player.y + to_move_y)][(int)floor(player.x + to_move_x)] == '1')//TOP LEFT colision
 		return(1);
 	if (player.map[(int)floor(player.y + to_move_y)] 
 	 	&& (player.map[(int)floor(player.y + DEVIATION + to_move_y)][(int)floor(player.x + to_move_x)] == '1'))//DOWN LEFT colision

@@ -6,7 +6,7 @@
 #    By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/23 16:53:33 by ptelo-de          #+#    #+#              #
-#    Updated: 2025/05/28 20:34:13 by ptelo-de         ###   ########.fr        #
+#    Updated: 2025/06/10 20:37:35 by ptelo-de         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,11 +30,12 @@ LINKS			=  -L./$(MLX_PATH) -lmlx -L./includes/libft -lft -lX11 -lXext -lm -lbsd
 
 SRC				=	raycasting/pilar_main.c \
 					raycasting/init_game.c \
-					raycasting/put_pixel.c \
+					raycasting/draw_loop.c \
 					raycasting/player.c \
 					raycasting/event_hook.c \
 					raycasting/mini_map.c \
-					raycasting/optic_ray.c
+					raycasting/optic_ray.c \
+					raycasting/bresenham.c
 					
 SRC_DIR			= raycasting
 

@@ -25,14 +25,16 @@ void	clear_image(t_game *game)
 			put_pixel(x, y, 0, game);
 	}
 }
-
+void bresenham(int x0, int y0, int x1, int y1, t_game *game) ;
 int draw_loop(t_game *game)
 {
 		move_player(&(game->player));
 		clear_image(game);
 		draw_2d_map(game);
+		//missing ray loop range
 		t_optic_ray aux = send_optic_ray(game->player.x, game->player.y, game->player.angle, game->map.buffer);
-		put_point(aux.x * TILE_SIZE , aux.y * TILE_SIZE, 0xFF0000, game);
+		printf("aux ray dist: %d\n", aux.dist);
+	    bresenham(aux.start_x, aux.start_y, aux.start_x + aux.dist, aux.start_y + aux.dist, game ) ;
 		mlx_put_image_to_window(game->mlx, game->window, game->img, 0, 0);
 
     return 1;

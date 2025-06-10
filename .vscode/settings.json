@@ -4,6 +4,7 @@
 		"map": "c",
 		"format": "c",
 		"cmath": "c",
-		"stdbool.h": "c"
+		"stdbool.h": "c",
+		"math.h": "c"
 	}
 }
