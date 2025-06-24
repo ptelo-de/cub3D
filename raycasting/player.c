@@ -45,37 +45,35 @@ void	wich_direction(t_player player, float *x, float *y)
 
 void	move_player(t_player *player)
 {
-	float	cos_angle;
-	float	sin_angle;
 	float to_move_x;
 	float to_move_y;
 
-
-	set_angle(player);
-
-	cos_angle = cos(player->angle);
-	sin_angle = sin(player->angle);
-
-
+	if (player->left_rotate || player->right_rotate)
+	{
+		set_angle(player);
+	}
+	player->dir_x = cos(player->angle);
+	player->dir_y = sin(player->angle);
+	
 	if (player->key_up)
 	{
-		to_move_x = -cos_angle * SPEED;
-		to_move_y = -sin_angle * SPEED;
+		to_move_x = -player->dir_x * SPEED;
+		to_move_y = -player->dir_y * SPEED;
 	}
 	if (player->key_down)
 	{
-		to_move_x = cos_angle * SPEED;
-		to_move_y = sin_angle * SPEED;
+		to_move_x = player->dir_x * SPEED;
+		to_move_y = player->dir_y * SPEED;
 	}
 	if (player->key_left)
 	{
-		to_move_x = -sin_angle * SPEED;
-		to_move_y = cos_angle * SPEED;
+		to_move_x = -player->dir_y * SPEED;
+		to_move_y = player->dir_x * SPEED;
 	}
 	if (player->key_right)
 	{
-		to_move_x = sin_angle * SPEED;
-		to_move_y = -cos_angle * SPEED;
+		to_move_x = player->dir_y * SPEED;
+		to_move_y = -player->dir_x * SPEED;
 	}
 	if (is_wall_hit(*player, to_move_x, to_move_y))
 	{
@@ -83,4 +81,5 @@ void	move_player(t_player *player)
 	}
 	player->x += to_move_x;
 	player->y += to_move_y;
+
 }

@@ -40,6 +40,12 @@ typedef struct s_player
 	float	y;
 	float	angle;
 
+	float dir_x;
+	float dir_y;
+
+	float plane_x;
+	float plane_y;
+
 	bool	key_up;
 	bool	key_down;
 	bool	key_left;
@@ -56,8 +62,31 @@ typedef struct s_map
 	char	**buffer;
 }				t_map;
 
+typedef struct s_dda
+{
+	double camerax;
+	double rayDirX;
+	double rayDiry;
+
+	int mapY;
+	int mapX;
+
+	double sideDistX;
+	double sideDistY;
+	double deltaDistX;
+	double deltaDistY;
+
+	int	stepX;
+	int stepY;
+
+	int hit;
+	int side;
+
+}		t_dda;
+
 typedef struct s_game
 {
+	t_dda *dda;
 	t_map		map;
 	t_player	player;
 	void		*mlx;
@@ -68,6 +97,7 @@ typedef struct s_game
 	int			bpp;
 	int			size_line;
 	int			endian;
+	
 }	t_game;
 
 //init_game.c
@@ -92,7 +122,7 @@ void	init_player(t_player *player, t_game *game);
 void draw_2d_map(t_game *game);
 
 int is_wall_hit(t_player player, float y, float x);
-t_optic_ray send_optic_ray(float x_start, float y_start, float ori, char **map);
+t_optic_ray send_optic_ray(float x_start, float y_start, float ori, char **map, t_game *game);
 void	put_point(int x, int y, int color, t_game *game);
 
 #endif

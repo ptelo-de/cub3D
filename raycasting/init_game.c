@@ -20,13 +20,37 @@ char **get_map(void)
 void init_player_angle(t_player *player, char position)
 {
 	if (position == 'N')
+	{
+		player->dir_x = 0;
+		player->dir_y = -1;
+		player->plane_x = 0.66;
+		player->plane_y = 0;
 		player->angle = PI/2;
+	}
 	if (position == 'W')
+	{
+		player->dir_x = -1;
+		player->dir_y = 0;
+		player->plane_x = 0;
+		player->plane_y = 0.66;
 		player->angle = PI;
+	}
 	if (position == 'S')
+	{
+		player->dir_x = 0;
+		player->dir_y = 1;
+		player->plane_x = 0.66;
+		player->plane_y = 0;
 		player->angle = (3 * PI) / 2;
+	}
 	if (position == 'E')
+	{
+		player->dir_x = 1;
+		player->dir_y = 0;
+		player->plane_x = 0;
+		player->plane_y = 0.66;
 		player->angle = 2 * PI;
+	}
 }
 void	player_first_pos(t_player *player, t_game *game)
 {
@@ -78,4 +102,11 @@ void init_game(t_game *game)
 	game->img = mlx_new_image(game->mlx, WIDTH, HEIGHT);
 	game->pixels = mlx_get_data_addr(game->img, &game->bpp, &game->size_line, &game->endian);
 	mlx_put_image_to_window(game->mlx, game->window, game->img, 0, 0);
+	game->dda = malloc(sizeof(t_dda));
+	if (!game->dda)
+	{
+		printf("couldn't allocate dda struct\n");
+		//free parsing;
+		exit(1);
+	}
 }
